@@ -23,10 +23,6 @@ cp flavors/default.sh scripts/ffmpeg.sh
 
 # --------------------------------------------------
 
-pwd
-
-ls deps
-
 cd deps/media-kit-android-helper
 
 sudo chmod +x gradlew
@@ -40,10 +36,6 @@ ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86/libmediakitandroidhelper.so
 ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86_64/libmediakitandroidhelper.so" "../../../libmpv/src/main/jniLibs/x86_64"
 
 cd ../..
-
-pwd
-
-ls deps/media_kit
 
 # --------------------------------------------------
 
@@ -78,25 +70,15 @@ zip -r "default-armeabi-v7a.jar"              lib/armeabi-v7a
 zip -r "default-x86.jar"                      lib/x86
 zip -r "default-x86_64.jar"                   lib/x86_64
 
-pwd
+mkdir -p ../../../../../../../../../../output
 
-ls
-
-mkdir -p ../../../../../../../../../output
-
-cp *.jar ../../../../../../../../../output
+cp *.jar ../../../../../../../../../../output
 
 md5sum *.jar
 
 cd ../../../../../../../../..
 
-pwd
-
-ls
-
-ls output
-
 # --------------------------------------------------
 
-#zip -r debug-symbols-default.zip prefix/*/lib
-#cp debug-symbols-default.zip ../output
+zip -r debug-symbols-default.zip prefix/*/lib
+cp debug-symbols-default.zip ../output
