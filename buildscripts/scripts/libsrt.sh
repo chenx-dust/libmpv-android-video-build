@@ -17,7 +17,7 @@ mkdir -p $build
 cd $build
 
 echo $CC
-which armv7a-linux-androideabi21-clang
+echo $PATH
 
 cmake .. \
 	-DENABLE_SHARED=ON \
