@@ -18,7 +18,7 @@ v_mpv=78d43740f52db817d98bcf24fb30a76ab6fa13ff
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
-v_libsrt=1.5.4
+v_libsrt=1.5.3
 
 
 ## Dependency tree
