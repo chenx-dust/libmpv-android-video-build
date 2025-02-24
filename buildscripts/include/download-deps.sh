@@ -42,6 +42,13 @@ mkdir -p deps && cd deps
 # libass
 [ ! -d libass ] && git clone --depth 1 --branch $v_libass https://github.com/libass/libass.git libass
 
+# libsrt
+if [ ! -d libsrt ]; then
+	mkdir libsrt
+	$WGET https://github.com/Haivision/srt/archive/refs/tags/v${v_libsrt}.tar.gz -O - | \
+		tar -xz -C libsrt --strip-components=1
+fi
+
 # shaderc
 mkdir -p shaderc
 cat >shaderc/README <<'HEREDOC'

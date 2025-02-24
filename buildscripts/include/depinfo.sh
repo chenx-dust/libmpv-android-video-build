@@ -18,6 +18,7 @@ v_mpv=78d43740f52db817d98bcf24fb30a76ab6fa13ff
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
+v_libsrt=1.5.4
 
 
 ## Dependency tree
@@ -29,13 +30,14 @@ dep_libvorbis=(libogg)
 if [ -n "$ENCODERS_GPL" ]; then
 	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264)
 else
-	dep_ffmpeg=(mbedtls dav1d libxml2)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libsrt)
 fi
 dep_freetype2=()
 dep_fribidi=()
 dep_harfbuzz=()
 dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
+dep_libsrt=(mbedtls)
 dep_shaderc=()
 if [ -n "$ENCODERS_GPL" ]; then
 	dep_mpv=(ffmpeg libass fftools_ffi)
