@@ -23,23 +23,24 @@ cp flavors/default.sh scripts/ffmpeg.sh
 
 # --------------------------------------------------
 
-cd deps/media-kit-android-helper
+echo "chdir media-kit-android-helpe"
+cd deps/media-kit-android-helper || exit 1
 
 sudo chmod +x gradlew
 ./gradlew assembleRelease
 
 unzip -q -o app/build/outputs/apk/release/app-release.apk -d app/build/outputs/apk/release
 
-ln -sf "app/build/outputs/apk/release/lib/arm64-v8a/libmediakitandroidhelper.so"   "../../../libmpv/src/main/jniLibs/arm64-v8a"
-ln -sf "app/build/outputs/apk/release/lib/armeabi-v7a/libmediakitandroidhelper.so" "../../../libmpv/src/main/jniLibs/armeabi-v7a"
-ln -sf "app/build/outputs/apk/release/lib/x86/libmediakitandroidhelper.so"         "../../../libmpv/src/main/jniLibs/x86"
-ln -sf "app/build/outputs/apk/release/lib/x86_64/libmediakitandroidhelper.so"      "../../../libmpv/src/main/jniLibs/x86_64"
+ln -sf "$(pwd)/app/build/outputs/apk/release/lib/arm64-v8a/libmediakitandroidhelper.so"   "../../../libmpv/src/main/jniLibs/arm64-v8a"
+ln -sf "$(pwd)/app/build/outputs/apk/release/lib/armeabi-v7a/libmediakitandroidhelper.so" "../../../libmpv/src/main/jniLibs/armeabi-v7a"
+ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86/libmediakitandroidhelper.so"         "../../../libmpv/src/main/jniLibs/x86"
+ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86_64/libmediakitandroidhelper.so"      "../../../libmpv/src/main/jniLibs/x86_64"
 
 cd ../..
 
 # --------------------------------------------------
 
-cd deps/media_kit/media_kit_native_event_loop
+cd deps/media_kit/media_kit_native_event_loop || exit 1
 
 flutter create --org com.alexmercerind --template plugin_ffi --platforms=android .
 
@@ -51,14 +52,14 @@ flutter pub get
 
 cp -a ../../mpv/include/mpv/. src/include/
 
-cd example
+cd example || exit 1
 
 flutter clean
 flutter build apk --release
 
 unzip -q -o build/app/outputs/apk/release/app-release.apk -d build/app/outputs/apk/release
 
-cd build/app/outputs/apk/release/
+cd build/app/outputs/apk/release/ || exit 1
 
 # --------------------------------------------------
 
