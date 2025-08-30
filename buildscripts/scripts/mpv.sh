@@ -8,7 +8,7 @@ build=_build$ndk_suffix
 if [ "$1" == "build" ]; then
 	true
 elif [ "$1" == "clean" ]; then
-	rm -rf _build$ndk_suffix
+	rm -rf $build
 	exit 0
 else
 	exit 255
