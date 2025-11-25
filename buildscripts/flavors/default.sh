@@ -225,6 +225,10 @@ cpuflags=
  	--enable-filter=dynaudnorm \
  	--enable-filter=loudnorm \
  	--enable-filter=alimiter \
+ 	--enable-filter=libplacebo \
+ 	--enable-filter=hwdownload \
+ 	--enable-filter=hwupload \
+ 	--enable-filter=format \
 	\
 	--enable-protocol=async \
 	--enable-protocol=cache \
@@ -264,3 +268,4 @@ ln -sf "$prefix_dir"/lib/libavformat.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libswscale.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavfilter.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavdevice.so "$native_dir"
+ln -sf "$prefix_dir"/lib/libplacebo.so "$native_dir"

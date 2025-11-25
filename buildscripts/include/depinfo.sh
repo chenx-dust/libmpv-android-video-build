@@ -30,10 +30,11 @@ v_libwebp=1.6.0
 dep_mbedtls=()
 dep_dav1d=()
 dep_libvorbis=(libogg)
+dep_libplacebo=()
 if [ -n "$ENCODERS_GPL" ]; then
-	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264 libwebp)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264 libwebp libplacebo)
 else
-	dep_ffmpeg=(mbedtls dav1d libxml2 libwebp)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libwebp libplacebo)
 fi
 dep_freetype2=()
 dep_fribidi=()
@@ -41,7 +42,6 @@ dep_harfbuzz=()
 dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
 dep_shaderc=()
-dep_libplacebo=()
 if [ -n "$ENCODERS_GPL" ]; then
 	dep_mpv=(ffmpeg libass libplacebo fftools_ffi)
 else
