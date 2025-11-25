@@ -16,12 +16,13 @@ v_mbedtls=3.6.4
 v_libplacebo=7.351.0
 v_dav1d=1.5.1
 v_libxml2=2.10.3
-v_ffmpeg=8.0
+v_ffmpeg=8.0.1
 v_mpv=0.40.0
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
 v_libwebp=1.6.0
+v_vulkan=1.4.334
 
 
 ## Dependency tree
@@ -31,10 +32,11 @@ dep_mbedtls=()
 dep_dav1d=()
 dep_libvorbis=(libogg)
 dep_libplacebo=()
+dep_vulkan=()
 if [ -n "$ENCODERS_GPL" ]; then
-	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264 libwebp libplacebo)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264 libwebp libplacebo vulkan)
 else
-	dep_ffmpeg=(mbedtls dav1d libxml2 libwebp libplacebo)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libwebp libplacebo vulkan)
 fi
 dep_freetype2=()
 dep_fribidi=()
@@ -43,7 +45,7 @@ dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
 dep_shaderc=()
 if [ -n "$ENCODERS_GPL" ]; then
-	dep_mpv=(ffmpeg libass libplacebo fftools_ffi)
+	dep_mpv=(ffmpeg libass libplacebo fftools_ffi vulkan)
 else
-	dep_mpv=(ffmpeg libass libplacebo)
+	dep_mpv=(ffmpeg libass libplacebo vulkan)
 fi

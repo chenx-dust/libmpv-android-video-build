@@ -33,7 +33,6 @@ cpuflags=
 	--enable-version3 \
 	--enable-static \
 	--disable-shared \
-	--disable-vulkan \
 	--disable-iconv \
 	--pkg-config-flags=--static \
 	\
@@ -54,6 +53,7 @@ cpuflags=
 	--enable-jni \
 	--enable-bsfs \
 	--enable-mediacodec \
+	--enable-vulkan \
 	\
 	--disable-dxva2 \
 	--disable-vaapi \

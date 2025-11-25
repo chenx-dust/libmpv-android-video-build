@@ -57,6 +57,9 @@ HEREDOC
 # libplacebo
 [ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recurse-submodules https://code.videolan.org/videolan/libplacebo.git libplacebo
 
+# vulkan
+[ ! -d vulkan ] && git clone --depth 1 --branch v$v_vulkan https://github.com/KhronosGroup/Vulkan-Headers vulkan
+
 # mpv
 [ ! -d mpv ]  && git clone --depth 1 --branch v$v_mpv https://github.com/mpv-player/mpv.git mpv
 
@@ -67,6 +70,6 @@ HEREDOC
 [ ! -d media-kit-android-helper ] && git clone --depth 1 --branch main https://github.com/media-kit/media-kit-android-helper.git media-kit-android-helper
 
 # media_kit
-[ ! -d media_kit ] && git clone --depth 1 --single-branch --branch version_1.2.5 https://github.com/bggRGjQaUbCoE/media-kit.git media_kit
+[ ! -d media_kit ] && git clone --depth 1 --single-branch --branch PiliPlus https://github.com/chenx-dust/media-kit.git media_kit
 
 cd ..
