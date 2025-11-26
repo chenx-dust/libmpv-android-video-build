@@ -33,7 +33,6 @@ cpuflags=
 	--enable-version3 \
 	--enable-static \
 	--disable-shared \
-	--disable-vulkan \
 	--disable-iconv \
 	--pkg-config-flags=--static \
 	\
@@ -54,6 +53,7 @@ cpuflags=
 	--enable-jni \
 	--enable-bsfs \
 	--enable-mediacodec \
+	--enable-vulkan \
 	\
 	--disable-dxva2 \
 	--disable-vaapi \
@@ -149,7 +149,6 @@ cpuflags=
 	--enable-demuxer=data \
 	--enable-demuxer=flv \
 	--enable-demuxer=hls \
-	--enable-demuxer=latm \
 	--enable-demuxer=live_flv \
 	--enable-demuxer=loas \
 	--enable-demuxer=m4v \
@@ -159,7 +158,6 @@ cpuflags=
 	--enable-demuxer=mpegvideo \
 	--enable-demuxer=hevc \
 	--enable-demuxer=rtsp \
-	--enable-demuxer=mpeg4 \
 	--enable-demuxer=avi \
 	--enable-demuxer=av1 \
 	--enable-demuxer=matroska \
@@ -206,8 +204,8 @@ cpuflags=
 	--enable-parser=h263 \
 	--enable-parser=h264 \
 	--enable-parser=hevc \
-	--enable-parser=mpeg4 \
 	--enable-parser=mpeg4video \
+	--enable-parser=mpegaudio \
 	--enable-parser=mpegvideo \
 	\
 	--enable-parser=aac* \
@@ -252,7 +250,7 @@ cpuflags=
 	--enable-protocol=subfile \
 	--enable-protocol=tcp \
 	--enable-protocol=tls \
-	--enable-protocol=srt \
+	--enable-protocol=srtp \
 	\
 	--enable-encoder=png \
 	--enable-encoder=libwebp \
@@ -270,4 +268,3 @@ ln -sf "$prefix_dir"/lib/libavformat.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libswscale.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavfilter.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavdevice.so "$native_dir"
-ln -sf "$prefix_dir"/lib/libplacebo.so "$native_dir"
