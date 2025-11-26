@@ -33,6 +33,7 @@ cpuflags=
 	--enable-version3 \
 	--enable-static \
 	--disable-shared \
+	--disable-vulkan \
 	--disable-iconv \
 	--pkg-config-flags=--static \
 	\
@@ -53,7 +54,6 @@ cpuflags=
 	--enable-jni \
 	--enable-bsfs \
 	--enable-mediacodec \
-	--enable-vulkan \
 	\
 	--disable-dxva2 \
 	--disable-vaapi \
@@ -82,6 +82,8 @@ cpuflags=
 	--enable-swresample \
 	\
 	--enable-libwebp \
+	\
+	--enable-libplacebo \
 	\
 	--enable-decoder=flv \
 	--enable-decoder=h263 \
