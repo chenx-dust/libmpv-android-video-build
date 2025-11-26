@@ -34,33 +34,23 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
+          cache: true
       - name: Symlink SDK
         working-directory: ./buildscripts
         run: |
           mkdir sdk
           ln -s ${ANDROID_HOME} ./sdk/android-sdk-linux
-      - name: Bundle (default)
+      - name: Bundle
         working-directory: ./buildscripts
         run: |
-          sudo chmod +x bundle_default.sh
-          ./bundle_default.sh
-      # - name: Bundle (full)
-      #   working-directory: ./buildscripts
-      #   run: |
-      #     sudo chmod +x bundle_full.sh
-      #     ./bundle_full.sh
-      # - name: Bundle (encoders-gpl)
-      #   working-directory: ./buildscripts
-      #   run: |
-      #     sudo chmod +x bundle_encoders-gpl.sh
-      #     ./bundle_encoders-gpl.sh
+          ./bundle.sh
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:

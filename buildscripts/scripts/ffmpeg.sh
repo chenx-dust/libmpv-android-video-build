@@ -25,31 +25,29 @@ cpuflags=
 
 ../configure \
 	--target-os=android --enable-cross-compile --cross-prefix=$ndk_triple- --ar=$AR --cc=$CC --ranlib=$RANLIB \
-	--arch=${ndk_triple%%-*} --cpu=$cpu --pkg-config=pkg-config \
-	--extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
+	--arch=${ndk_triple%%-*} --cpu=$cpu --pkg-config=pkg-config --nm=llvm-nm \
+	--extra-cflags="-Wno-incompatible-function-pointer-types -I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
 	\
-	--disable-gpl \
-	--disable-nonfree \
+	--enable-gpl \
+	--enable-nonfree \
 	--enable-version3 \
 	--enable-static \
 	--disable-shared \
-	--disable-vulkan \
 	--disable-iconv \
-	--disable-stripping \
 	--pkg-config-flags=--static \
 	\
 	--enable-decoders \
 	--enable-demuxers \
 	--enable-parsers \
+	--enable-filters \
 	\
 	--disable-muxers \
 	--disable-encoders \
+	--disable-parsers \
 	--disable-protocols \
 	--disable-devices \
-	--disable-filters \
 	--disable-doc \
 	--disable-avdevice \
-	--disable-postproc \
 	--disable-programs \
 	--disable-gray \
 	--disable-swscale-alpha \
@@ -57,6 +55,7 @@ cpuflags=
 	--enable-jni \
 	--enable-bsfs \
 	--enable-mediacodec \
+	--enable-vulkan \
 	\
 	--disable-dxva2 \
 	--disable-vaapi \
@@ -84,39 +83,12 @@ cpuflags=
 	--enable-swscale \
 	--enable-swresample \
 	\
+	--enable-libwebp \
+	--enable-libplacebo \
 	\
-	\
-	--enable-filter=overlay \
-	--enable-filter=equalizer \
-	\
-	--enable-protocol=async \
-	--enable-protocol=cache \
-	--enable-protocol=crypto \
-	--enable-protocol=data \
-	--enable-protocol=ffrtmphttp \
-	--enable-protocol=file \
-	--enable-protocol=ftp \
-	--enable-protocol=hls \
-	--enable-protocol=http \
-	--enable-protocol=httpproxy \
-	--enable-protocol=https \
-	--enable-protocol=pipe \
-	--enable-protocol=rtmp \
-	--enable-protocol=rtmps \
-	--enable-protocol=rtmpt \
-	--enable-protocol=rtmpts \
-	--enable-protocol=rtp \
-	--enable-protocol=subfile \
-	--enable-protocol=tcp \
-	--enable-protocol=tls \
-	--enable-protocol=srt \
-	\
-	--enable-encoder=mjpeg \
-	--enable-encoder=ljpeg \
-	--enable-encoder=jpegls \
-	--enable-encoder=jpeg2000 \
 	--enable-encoder=png \
-	--enable-encoder=jpegls \
+	--enable-encoder=libwebp \
+	--enable-encoder=libwebp_anim \
 	\
 	--enable-network \
 
@@ -124,7 +96,6 @@ make -j$cores
 make DESTDIR="$prefix_dir" install
 
 ln -sf "$prefix_dir"/lib/libswresample.so "$native_dir"
-ln -sf "$prefix_dir"/lib/libpostproc.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavutil.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavcodec.so "$native_dir"
 ln -sf "$prefix_dir"/lib/libavformat.so "$native_dir"
