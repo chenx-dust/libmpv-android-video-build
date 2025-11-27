@@ -58,7 +58,7 @@ HEREDOC
 [ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recurse-submodules --shallow-submodules https://code.videolan.org/videolan/libplacebo.git libplacebo
 
 # vulkan
-[ ! -d vulkan ] && git clone --depth 1 --branch v$v_vulkan https://github.com/KhronosGroup/Vulkan-Headers vulkan
+[ ! -d vulkan ] && git clone --depth 1 --branch vulkan-sdk-$v_vulkan https://github.com/KhronosGroup/Vulkan-ValidationLayers vulkan
 
 # mpv
 [ ! -d mpv ]  && git clone --depth 1 --branch v$v_mpv https://github.com/mpv-player/mpv.git mpv

@@ -22,7 +22,7 @@ v_libogg=1.3.6
 v_libvorbis=1.3.7
 v_libvpx=1.15
 v_libwebp=1.6.0
-v_vulkan=1.4.334
+v_vulkan=1.4.328.1
 
 
 ## Dependency tree
@@ -31,13 +31,13 @@ v_vulkan=1.4.334
 dep_mbedtls=()
 dep_dav1d=()
 dep_libvorbis=(libogg)
-dep_libplacebo=()
 dep_vulkan=()
+dep_shaderc=()
+dep_libplacebo=(vulkan shaderc)
 dep_ffmpeg=(mbedtls dav1d libxml2 libwebp libplacebo vulkan)
 dep_freetype2=()
 dep_fribidi=()
 dep_harfbuzz=()
 dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
-dep_shaderc=()
 dep_mpv=(ffmpeg libass libplacebo vulkan)
