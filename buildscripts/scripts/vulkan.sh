@@ -27,3 +27,12 @@ cmake -S . -B build \
 cmake --build build
 
 cmake --install build --prefix "$prefix_dir"
+
+mkdir -p "$prefix_dir"/lib/pkgconfig
+cat >"$prefix_dir"/lib/pkgconfig/vulkan.pc <<END
+Name: Vulkan
+Description:
+Version: $v_vulkan
+Libs: -lvulkan
+Cflags:
+END

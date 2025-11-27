@@ -35,9 +35,14 @@ cp libs/*/$abi/libshaderc.a "$prefix_dir/lib/libshaderc_combined.a"
 # 'libc++' instead of 'libstdc++': workaround for meson linking bug
 mkdir -p "$prefix_dir"/lib/pkgconfig
 cat >"$prefix_dir"/lib/pkgconfig/shaderc_combined.pc <<"END"
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
 Name: shaderc_combined
 Description:
 Version: 2022.3-unknown
-Libs: -L/usr/lib -lshaderc_combined
+Libs: -L${libdir} -lshaderc_combined
 Cflags: -I${includedir}
 END

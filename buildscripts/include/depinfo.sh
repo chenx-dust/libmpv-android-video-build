@@ -22,7 +22,7 @@ v_libogg=1.3.6
 v_libvorbis=1.3.7
 v_libvpx=1.15
 v_libwebp=1.6.0
-v_vulkan=1.4.328.1
+v_vulkan=1.4.328
 
 
 ## Dependency tree
