@@ -15,9 +15,9 @@ else
 fi
 
 cmake -S . -B build \
-  -D CMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+  -D CMAKE_TOOLCHAIN_FILE=../../sdk/android-sdk-linux/ndk/$v_ndk/build/cmake/android.toolchain.cmake \
   -D ANDROID_PLATFORM=26 \
-  -D CMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -D CMAKE_ANDROID_ARCH_ABI=$prefix_name \
   -D CMAKE_ANDROID_STL_TYPE=c++_static \
   -D ANDROID_USE_LEGACY_TOOLCHAIN_FILE=NO \
   -D CMAKE_BUILD_TYPE=Release \
