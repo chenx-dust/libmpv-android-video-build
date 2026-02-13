@@ -4,6 +4,8 @@
 
 [ -z "$WGET" ] && WGET=wget
 
+set -euo pipefail
+
 mkdir -p deps && cd deps
 
 git config --global advice.detachedHead false
